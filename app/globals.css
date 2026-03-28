@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  background-color: #ede5d8;
+  background-image:
+    radial-gradient(circle at 14% 10%, rgba(197, 157, 104, 0.18), transparent 24%),
+    radial-gradient(circle at 86% 12%, rgba(17, 17, 17, 0.08), transparent 26%),
+    radial-gradient(circle at 50% 120%, rgba(143, 103, 67, 0.12), transparent 32%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(237, 229, 216, 0.94));
+  color: #111111;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+body::before,
+body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+body::before {
+  opacity: 0.38;
+  background-image:
+    linear-gradient(rgba(17, 17, 17, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.03) 1px, transparent 1px);
+  background-size: 5.5rem 5.5rem;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), transparent 92%);
+}
+
+body::after {
+  background:
+    radial-gradient(circle at 50% -10%, rgba(255, 255, 255, 0.78), transparent 42%),
+    radial-gradient(circle at 50% 0%, rgba(17, 17, 17, 0.04), transparent 55%);
+}
+
+@media (min-width: 640px) {
+  html {
+    scroll-padding-top: 7rem;
+  }
+}
+
+@media (pointer: fine) {
+  body,
+  a,
+  button,
+  [data-cursor="highlight"] {
+    cursor: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+::selection {
+  background: rgba(17, 17, 17, 0.9);
+  color: #f9f6f1;
+}
+
+a,
+button {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+@layer base {
+  * {
+    @apply border-line;
+  }
+}
+
+@layer utilities {
+  .section-shell {
+    @apply mx-auto w-full max-w-[1720px] px-4 sm:px-8 lg:px-14 xl:px-16;
+  }
+
+  .display-title {
+    @apply font-display uppercase tracking-[-0.1em] leading-[0.82];
+  }
+
+  .eyebrow {
+    @apply text-[0.68rem] uppercase tracking-[0.32em] text-ink/55;
+  }
+
+  .copy-lg {
+    @apply text-[1.02rem] leading-[1.78] sm:text-[1.18rem];
+    color: rgba(17, 17, 17, 0.72);
+  }
+
+  .copy-xl {
+    @apply text-[1.08rem] leading-[1.82] sm:text-[1.28rem];
+    color: rgba(17, 17, 17, 0.74);
+  }
+
+  .panel-surface {
+    @apply rounded-[2rem] border border-ink/10 bg-white/78 shadow-panel backdrop-blur;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
